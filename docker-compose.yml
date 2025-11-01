@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_NAME=fest_manager
+      - DB_USER=fest_user
+      - DB_PASSWORD=fest_password
+      - JWT_SECRET=your-jwt-secret-here
+      - SESSION_SECRET=your-session-secret-here
+      - CLIENT_URL=http://localhost:3000
+    depends_on:
+      - db
+    volumes:
+      - ./uploads:/app/uploads
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password
+      - MYSQL_DATABASE=fest_manager
+      - MYSQL_USER=fest_user
+      - MYSQL_PASSWORD=fest_password
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  mysql_data:

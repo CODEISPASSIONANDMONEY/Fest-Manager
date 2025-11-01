@@ -1,6 +1,10 @@
-# Fest Manager
+# 🎉 Fest Manager
 
 A collaborative, deadline-driven web application for managing Pre-Fest and Post-Fest arrangements with real-time notifications, team management, and task tracking.
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
+
+**🚀 [Live Demo](#) | 📚 [Documentation](./DEPLOYMENT.md)**
 
 ## Features
 
